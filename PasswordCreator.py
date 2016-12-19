@@ -1,5 +1,4 @@
 import random
-import stdio
 
 numbers = '1234567890'
 letters = 'qwertyuiopasdfghjklzxcvbnm'
