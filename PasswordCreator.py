@@ -7,9 +7,9 @@ letters_caps = 'QWERTYUIOPLKJHGFDSAZXCVBNM'
 symbols = '!@#$%^&*()_+=~`:"<>?|\;,."`'
 
 def create_password(leng):
-    """Creates a random password.
+    """
+    Creates a random password.
     Arguments - leng, an integer, has to be multiple of 4.
-
     """
     password = ''
     lis = []
@@ -54,5 +54,9 @@ def write_pass_to_file(filename, leng, numofpass):
             password = create_password(leng)
             myfile.write(str(counter).rjust(4) + ". "  + password + '\n')
             counter += 1
-
-write_pass_to_file('text.txt', 12, 100000)
+            
+def main():
+    write_pass_to_file('text.txt', 12, 1000)
+    
+if __name__ == '__main__':
+	main()
