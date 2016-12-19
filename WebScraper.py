@@ -3,33 +3,45 @@ import requests
 import os
 import sys
 
-    """
-    Takes three command line inputs. the url of the website to scrape, name of
-    the directory to create, and the directory to store the new directory into.
-    """
+"""
+Takes three command line inputs. the url of the website to scrape, name of
+the directory to create, and the path to the directory to store the new
+directory with the photos into. Script created for imaxxbp.com.
+"""
 
 url = str(sys.argv[1])
-name = str(sys.argv[2])
+namedir = str(sys.argv[2])
 direc = str(sys.argv[3])
 
-def makdir(name, direc):
+def makdir(namedir, direc):
     """
     Creates a new directory to store photos retrieved from the web. Makes sure
-    that the name given for the new directory is no the same as the current
+    that the name given for the new directory is not the same as the current
     directory.
     """
     cudir = os.getcwd()
-    if name != cudir:
+    if namedir != cudir and os.path.exists(direc + "/" + namedir) == False:
         folder = os.chdir(direc)
-        os.mkdir(name)
+        os.mkdir(namedir)
     else:
-        os.mkdir(name)
-    return name
+        dir2 = check_dir(namedir)
+    return dir2
 
-def get_images(url, name, direc):
+def check_dir(d):
+    namedir2 = d
+    if os.path.exists(direc + "/" + d):
+        print "The directory name already exists. Provide a new name."
+        namedir2 = raw_input("New name. ")
+        check_dir(namedir2);
+    else:
+        os.mkdir(namedir2)
+    return namedir2
+
+
+def get_images(url, namedir, direc):
     con = requests.get(url)
     soup = BeautifulSoup(con.content, "html.parser")
-    dest = makdir(name, direc)
+    dest = makdir(namedir, direc)
     print "Retrieving Images..."
     for im in soup.find_all("img"):
         urlimage = im.get("src")
@@ -40,3 +52,7 @@ def get_images(url, name, direc):
             fil.write(requests.get(urlimage).content)
             fil.close
     print "Finished..."
+
+
+if __name__ == '__main__':
+	get_images(url, namedir, direc)
