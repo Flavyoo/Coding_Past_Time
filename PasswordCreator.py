@@ -57,7 +57,7 @@ def write_pass_to_file(filename, leng, numofpass):
 
 def main():
     write_pass_to_file('text.txt', 8, 10)
-    #called with a length that is not multiple of 4. The length will previous muliple of 4.
+    #called with a length that is not multiple of 4. The length will be previous muliple of 4.
     write_pass_to_file('text.txt', 7, 10)
 
 if __name__ == '__main__':
