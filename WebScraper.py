@@ -6,7 +6,8 @@ import sys
 """
 Takes three command line inputs. the url of the website to scrape, name of
 the directory to create, and the path to the directory to store the new
-directory with the photos into. Script created for imaxxbp.com.
+directory and the photos into. Script created for imaxxbp.com. May not work
+on all websites.
 """
 
 url = str(sys.argv[1])
