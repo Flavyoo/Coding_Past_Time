@@ -55,6 +55,7 @@ def write_pass_to_file(filename, leng, numofpass):
             myfile.write(str(counter).rjust(4) + ". "  + password + '\n')
             counter += 1
 
+	
 def main():
     write_pass_to_file('text.txt', 8, 10)
     #called with a length that is not multiple of 4. The length will be previous muliple of 4.
