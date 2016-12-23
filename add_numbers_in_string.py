@@ -1,9 +1,3 @@
-"""
-	Given a string with a mix of integers and characters, find sum of all
-	integers in the string and print them out in the order they are listed in
-	the string. For example:  The string a1h76hj6klkllkk87654_87_ji89 would
-	print out 1 + 76 + 6 + 87654 + 87 + 89 = 87913.
-"""
 
 import sys
 
@@ -11,6 +5,15 @@ characters = sys.argv[1]
 numbers = ""
 
 def add_ints(s):
+	"""
+	Function add_ints takes in a string parameter. It searches the strings for
+	numbers and return the total sum of all the numbers found in the string.
+	For example:  The string a1h76hj6klkllkk87654_87_ji89 would
+	print out 1 + 76 + 6 + 87654 + 87 + 89 = 87913.
+	Takes one command line input which is the string to read.
+	"""
+	# Prepend extra character to prevent bug of not adding numbers in front.
+	s = " " + s
 	global numbers
 	total = 0
 	place = 0
@@ -21,7 +24,9 @@ def add_ints(s):
 			total += int(i) * pow(10, place);
 			place += 1
 		else:
+			# Current number found.
 			number = total - numprev
+			# Keep track of total numbers found so far.
 			numprev += number
 			if number != 0:
 			    numbers += " + " + str(number)[::-1]
@@ -29,15 +34,20 @@ def add_ints(s):
 	return total
 
 def show_num(s):
+	"""
+	Returns a string of all the numbers found in the string s through an
+	addition and sum representation.
+	"""
 	nums = ""
 	if len(numbers) > 0:
+		# We do not need the first three characters of " + ".
 	    nums = numbers[3:]
 	    return nums[::-1] + " = " + str(add_ints(s))
 	else:
 		return "No Numbers found!"
 
 def main():
-	print(str(add_ints(characters)))
+	print(add_ints(characters))
 	print(show_num(characters))
 
 if __name__ == '__main__':
