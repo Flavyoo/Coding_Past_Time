@@ -6,9 +6,9 @@ numbers = ""
 
 def add_ints(s):
 	"""
-	Function add_ints takes in a string parameter. It searches the strings for
-	numbers and return the total sum of all the numbers found in the string.
-	For example:  The string a1h76hj6klkllkk87654_87_ji89 would
+	Function add_ints takes in a string for it's parameter. It searches the string for
+	numbers and returns the total sum of all the numbers found.
+	For example: The string a1h76hj6klkllkk87654_87_ji89 would
 	print out 1 + 76 + 6 + 87654 + 87 + 89 = 87913.
 	Takes one command line input which is the string to read.
 	"""
