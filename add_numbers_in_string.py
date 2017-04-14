@@ -13,6 +13,7 @@ def add_ints(s):
 	Takes one command line input which is the string to read.
 	"""
 	# Prepend extra character to prevent bug of not adding numbers in front.
+	s.replace(" ", "")
 	s = " " + s
 	global numbers
 	total = 0
