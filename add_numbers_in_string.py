@@ -13,14 +13,12 @@ def add_ints(s):
 	Takes one command line input which is the string to read.
 	"""
 	# Prepend extra character to prevent bug of not adding numbers in front.
-	s.replace(" ", "")
-	s = " " + s
 	global numbers
 	total = 0
 	place = 0
 	number = 0
 	numprev = 0
-	for i in reversed(s):
+	for i in reversed(" " + s):
 		if i.isdigit():
 			total += int(i) * pow(10, place);
 			place += 1
@@ -30,7 +28,7 @@ def add_ints(s):
 			# Keep track of total numbers found so far.
 			numprev += number
 			if number != 0:
-			    # appends the reverse of the number to numbers
+			    # Appends the reverse of the number to numbers
 			    numbers += " + " + str(number)[::-1]
 			place = 0
 	return total
@@ -42,7 +40,7 @@ def show_num(s):
 	"""
 	nums = ""
 	if len(numbers) > 0:
-	    # Reverse the reverse number. 
+	    # Reverse the reverse number.
 	    # We do not need the first three characters of " + ".
 	    nums = numbers[3:]
 	    return nums[::-1] + " = " + str(add_ints(s))
