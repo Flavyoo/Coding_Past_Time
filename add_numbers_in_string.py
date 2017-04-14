@@ -30,6 +30,7 @@ def add_ints(s):
 			# Keep track of total numbers found so far.
 			numprev += number
 			if number != 0:
+			    # appends the reverse of the number to numbers
 			    numbers += " + " + str(number)[::-1]
 			place = 0
 	return total
@@ -41,7 +42,8 @@ def show_num(s):
 	"""
 	nums = ""
 	if len(numbers) > 0:
-		# We do not need the first three characters of " + ".
+	    # Reverse the reverse number. 
+	    # We do not need the first three characters of " + ".
 	    nums = numbers[3:]
 	    return nums[::-1] + " = " + str(add_ints(s))
 	else:
