@@ -1,3 +1,6 @@
+# Flavio Andrade
+# 4-12-2017
+
 # Works for rotations of string that are 998 charactes long. > 998, there is
 # maximum recursion depth exceeded
 # sorted
