@@ -1,5 +1,5 @@
 # Given an array of numbers find the maximum number that can be created by
-# multiply the indices with the value after each rotation of the array.
+# multiplying the indices with the value after each rotation of the array.
 # O(n) time.
 class MaxRotate(object):
     # Takes an array of numbers and a boolean--True to print, False to not print.
@@ -20,7 +20,7 @@ class MaxRotate(object):
                 if printRotation:
                     print A
                 j = 0
-                # compare the current total to the previous total to find max
+                # compare the current total to the previous total to find max.
                 if temp > s:
                     s = temp
                 temp = 0
