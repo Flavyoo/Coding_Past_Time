@@ -1,7 +1,10 @@
+from hashtable import Hashtable, Item
 
-# Given an array of numbers and a target number, return the indices of
-# two numbers that add up to the target, given there is only on solution.
+# Brute Force Method. Quadratic time.
 class Solution(object):
+    # Given an array of numbers and a target number, return the indices of
+    # two numbers that add up to the target, given there is only on solution.
+
     def twoSum(self, nums, target):
         prevloc = 0
         nextloc = 0
@@ -14,25 +17,21 @@ class Solution(object):
                     return [prevloc, nextloc]
         return None
 
-    # Not working yet
-    def twoSumlinear(self, nums, target):
-        prevloc = 0
-        nextloc = 0
-        indices = []
-        coms = []
+    # Find the compliment using a hashtable. O(n) time.
+    def twoSumWithHash(self, nums, target):
+        hashtable = Hashtable()
         for i in range(len(nums)):
-            if nums[i] < target:
-                coms += nums[i]
-        for k in range(len(coms)):
-            compliment = target - coms[k]
-            prevloc = i
-            for j in range(i + 1, len(coms)):
-                if nums[j] == compliment:
-                    nextloc = j
-                    return [prevloc, nextloc]
-        return None
+            # Check if compliment exists.
+            if hashtable.contains(target - nums[i]):
+                # Return it if it does.
+                return [hashtable.get(target - nums[i]), i]
+            else:
+                hashtable.put(nums[i], i)
+
 
 if __name__ == '__main__':
     S = Solution()
-    solution = S.twoSum([4,8,3,-8,2,6,], 7)
+    solution = S.twoSumWithHash([4,8,3,-8,2,6,], 7)
+    solution2 = S.twoSum([4,8,3,-8,2,6,], 7)
     print solution
+    print solution2
