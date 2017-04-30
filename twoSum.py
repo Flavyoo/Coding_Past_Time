@@ -17,11 +17,11 @@ class Solution(object):
                     return [prevloc, nextloc]
         return None
 
-    # Find the compliment using a hashtable. O(n) time.
+    # Find the complement using a hashtable. O(n) time.
     def twoSumWithHash(self, nums, target):
         hashtable = Hashtable()
         for i in range(len(nums)):
-            # Check if compliment exists.
+            # Check if complement exists.
             if hashtable.contains(target - nums[i]):
                 # Return it if it does.
                 return [hashtable.get(target - nums[i]), i]
