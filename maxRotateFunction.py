@@ -1,10 +1,6 @@
 # Given an array of numbers find the maximum number that can be created by
-<<<<<<< Updated upstream
 # multiplying the indices with the value after each rotation of the array.
-=======
 # multiply the indices with the value after each rotation of the array.
-
->>>>>>> Stashed changes
 # O(n) time.
 class MaxRotate(object):
     # Takes an array of numbers and a boolean--True to print, False to not print.

@@ -4,7 +4,6 @@ from hashtable import Hashtable, Item
 class Solution(object):
     # Given an array of numbers and a target number, return the indices of
     # two numbers that add up to the target, given there is only on solution.
-
     def twoSum(self, nums, target):
         prevloc = 0
         nextloc = 0
