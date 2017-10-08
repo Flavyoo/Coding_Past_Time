@@ -1,4 +1,4 @@
-# If you dont have requests installed or BeautifulSoup install them first
+# If you dont have requests installed or BeautifulSoup, install them first
 # sudo pip install requests
 # pip install bs4
 
